@@ -40,10 +40,10 @@
       <div>
         <p class="label">Install</p>
         <h1 style="margin-top:1.2rem;font-size:clamp(2.8rem,8vw,5.6rem)">TALOS</h1>
-        <p class="tag">Two commands. Both tested.</p>
+        <p class="tag">Every option, every command.</p>
         <p class="lede">We ran every command on this page in a clean, isolated environment before publishing it. The full output is in the <a href="https://github.com/talos-hq/talos-hq.github.io/blob/main/docs/install-evidence.md">install evidence</a>.</p>
         <div class="ctas">
-          <a class="btn solid" href="#agent">The agent</a>
+          <a class="btn solid" href="/#install">Talos</a><a class="btn" href="#hermes-slim">hermes-slim</a>
           <a class="btn" href="#clud">clud</a>
         </div>
       </div>
@@ -55,11 +55,11 @@
   </section>
 
   <div class="wrap">
-    <section class="install-block" id="agent" aria-labelledby="agent-title">
+    <section class="install-block" id="hermes-slim" aria-labelledby="slim-title">
       <aside class="reveal">
         <svg aria-hidden="true"><use href="/assets/icons.svg#t"/></svg>
-        <h2 id="agent-title">THE AGENT</h2>
-        <p>The agent that grows with you. Our fork of Hermes Agent by Nous Research, with our fixes on top and upstream merged in.</p>
+        <h2 id="slim-title">HERMES-SLIM</h2>
+        <p>Hermes Agent as upstream ships it, plus our fixes. No rebrand. Pick this if you want Hermes rather than Talos.</p>
         <p class="repo" style="font:.8rem var(--mono)"><a href="https://github.com/talos-hq/hermes-slim">talos-hq/hermes-slim</a></p>
       </aside>
       <div class="body reveal">
@@ -83,7 +83,7 @@
           <div class="cmd" style="margin-top:1rem"><pre data-prompt="$">git clone https://github.com/talos-hq/hermes-slim &amp;&amp; cd hermes-slim &amp;&amp; git checkout d4f228ac265af37d1a52ff65b28d884fd4b1aa22 &amp;&amp; source ./activate</pre><button type="button" data-copy>Copy</button></div>
           <p style="margin-top:.8rem;color:var(--stone);font-size:1rem">Pin by commit. Check it with <code>hermes --version</code>.</p>
         </div>
-        <p class="callout">A one-line installer that downloads a prebuilt, sha256-verified bundle is in progress. It goes on this page once a release ships the bundles it expects and we have tested it. The upstream installer at hermes-agent.nousresearch.com installs upstream Hermes, not Talos.</p>
+        <p class="callout">Want the one-command install with signed bundles? That is <a href="/#install">Talos</a>. hermes-slim runs from a git checkout, like upstream Hermes. The installer at hermes-agent.nousresearch.com installs upstream Hermes, not hermes-slim.</p>
       </div>
     </section>
 
