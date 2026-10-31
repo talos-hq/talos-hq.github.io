@@ -2,96 +2,134 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Install — TalosBot</title>
-<meta name="description" content="Install clud and the TalosBot agent with verified one-line commands.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Install Talos</title>
+<meta name="description" content="Install the Talos agent and clud. Every command on this page was run end to end before it was published.">
+<meta name="theme-color" content="#0b0d10">
 <link rel="canonical" href="https://talosbot.ai/install/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="/assets/styles.css">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="TalosBot">
-<meta property="og:title" content="Install — TalosBot">
-<meta property="og:description" content="Install clud and the TalosBot agent with verified one-line commands.">
+<meta property="og:site_name" content="Talos">
+<meta property="og:title" content="Install Talos">
+<meta property="og:description" content="Install the Talos agent and clud with commands we ran before publishing.">
 <meta property="og:url" content="https://talosbot.ai/install/">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Install — TalosBot">
-<meta name="twitter:description" content="Install clud and the TalosBot agent with verified one-line commands.">
+<meta property="og:image" content="https://talosbot.ai/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://talosbot.ai/assets/og.jpg">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site">
+<header class="nav">
   <div class="wrap">
-    <a class="brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">TalosBot</a>
+    <a class="wordmark" href="/" aria-label="Talos home"><svg aria-hidden="true"><use href="/assets/icons.svg#emblem"/></svg>TALOS</a>
     <nav aria-label="Primary">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/install/" aria-current="page">Install</a></li>
-        <li><a href="https://github.com/talos-hq">GitHub</a></li>
-      </ul>
+      <a href="/">Home</a>
+      <a href="/install/" aria-current="page">Install</a>
+      <a href="https://github.com/talos-hq">GitHub</a>
     </nav>
   </div>
 </header>
+
 <main id="main">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="label">Install</p>
+        <h1 style="margin-top:1.2rem;font-size:clamp(2.8rem,8vw,5.6rem)">TALOS</h1>
+        <p class="tag">Two commands. Both tested.</p>
+        <p class="lede">We ran every command on this page in a clean, isolated environment before publishing it. The full output is in the <a href="https://github.com/talos-hq/talos-hq.github.io/blob/main/docs/install-evidence.md">install evidence</a>.</p>
+        <div class="ctas">
+          <a class="btn solid" href="#agent">The agent</a>
+          <a class="btn" href="#clud">clud</a>
+        </div>
+      </div>
+      <figure class="emblem">
+        <img src="/assets/talos.jpg" alt="The bronze Talos figure inside a turning bronze ring" width="900" height="900" fetchpriority="high">
+        <span class="core" aria-hidden="true"></span>
+      </figure>
+    </div>
+  </section>
+
   <div class="wrap">
-    <section class="hero" aria-labelledby="page-title">
-      <p class="eyebrow">Install</p>
-      <h1 id="page-title">Install TalosBot</h1>
-      <p class="lede">Two projects, one command each. Both commands below were run end to end in a clean, isolated environment on Linux before this page was published.</p>
+    <section class="install-block" id="agent" aria-labelledby="agent-title">
+      <aside class="reveal">
+        <svg aria-hidden="true"><use href="/assets/icons.svg#t"/></svg>
+        <h2 id="agent-title">THE AGENT</h2>
+        <p>The agent that grows with you. Our fork of Hermes Agent by Nous Research, with our fixes on top and upstream merged in.</p>
+        <p class="repo" style="font:.8rem var(--mono)"><a href="https://github.com/talos-hq/hermes-slim">talos-hq/hermes-slim</a></p>
+      </aside>
+      <div class="body reveal">
+        <div class="cmd"><pre data-prompt="$">git clone https://github.com/talos-hq/hermes-slim &amp;&amp; cd hermes-slim &amp;&amp; source ./activate</pre><button type="button" data-copy>Copy</button></div>
+        <div>
+          <h3>What it does</h3>
+          <ul style="margin-top:1rem">
+            <li>Clones the fork. <code>source ./activate</code> then runs the repo's own setup: a pinned uv, Python 3.14, and the locked dependencies, hash-checked against <code>uv.lock</code>.</li>
+            <li>Activates the environment in your shell and puts <code>hermes</code> on your PATH while you are in the checkout. <code>deactivate</code> undoes it.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Prerequisites</h3>
+          <ul style="margin-top:1rem">
+            <li><code>git</code>, and <code>bash</code> or <code>zsh</code>. Fish and PowerShell use <code>activate.fish</code> and <code>activate.ps1</code>.</li>
+            <li>Time and disk space: our first setup downloaded about 2&nbsp;GB and took around 20 minutes.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Pin a version</h3>
+          <div class="cmd" style="margin-top:1rem"><pre data-prompt="$">git clone https://github.com/talos-hq/hermes-slim &amp;&amp; cd hermes-slim &amp;&amp; git checkout d4f228ac265af37d1a52ff65b28d884fd4b1aa22 &amp;&amp; source ./activate</pre><button type="button" data-copy>Copy</button></div>
+          <p style="margin-top:.8rem;color:var(--stone);font-size:1rem">Pin by commit. Check it with <code>hermes --version</code>.</p>
+        </div>
+        <p class="callout">A one-line installer that downloads a prebuilt, sha256-verified bundle is in progress. It goes on this page once a release ships the bundles it expects and we have tested it. The upstream installer at hermes-agent.nousresearch.com installs upstream Hermes, not Talos.</p>
+      </div>
     </section>
 
-    <section class="product" id="clud" aria-labelledby="clud-title">
-      <h2 id="clud-title">clud</h2>
-      <p>Claude &amp; Codex CLI but with safety 3rd and God Mode always.</p>
-      <div class="cmd"><pre><code id="cmd-clud">curl -fsSL https://raw.githubusercontent.com/talos-hq/clud/main/install.sh | sh</code></pre><button class="copy" type="button" data-copy="cmd-clud">Copy</button></div>
-      <h3>What it does</h3>
-      <ul class="plain">
-        <li>Installs <a href="https://docs.astral.sh/uv/">uv</a> with Astral's official installer if it is not already on your PATH.</li>
-        <li>Runs <code>uv tool install --force clud</code>, which puts a single <code>clud</code> executable in uv's tool bin directory.</li>
-        <li>Runs a quick self-check on the installed binary, then runs <code>uv tool update-shell</code> so future shells find it. Set <code>CLUD_NO_PATH=1</code> to skip editing your shell profile.</li>
-      </ul>
-      <h3>Prerequisites</h3>
-      <ul class="plain"><li>A POSIX shell and <code>curl</code>. uv is installed for you if missing.</li></ul>
-      <h3>Pin a version</h3>
-      <div class="cmd"><pre><code id="cmd-clud-pin">curl -fsSL https://raw.githubusercontent.com/talos-hq/clud/main/install.sh | CLUD_VERSION=2.8.47 sh</code></pre><button class="copy" type="button" data-copy="cmd-clud-pin">Copy</button></div>
-      <p>Check it with <code>clud --version</code>. Release catalog: <a href="https://talos-hq.github.io/clud/install/manifest.json">manifest.json</a> · <a href="https://github.com/talos-hq/clud">source</a>.</p>
-    </section>
-
-    <section class="product" id="agent" aria-labelledby="agent-title">
-      <h2 id="agent-title">The agent</h2>
-      <p>The agent that grows with you. <a href="https://github.com/talos-hq/hermes-slim">talos-hq/hermes-slim</a> is our fork of Hermes Agent by Nous Research. It runs from a git checkout.</p>
-      <div class="cmd"><pre><code id="cmd-agent">git clone https://github.com/talos-hq/hermes-slim &amp;&amp; cd hermes-slim &amp;&amp; source ./activate</code></pre><button class="copy" type="button" data-copy="cmd-agent">Copy</button></div>
-      <h3>What it does</h3>
-      <ul class="plain">
-        <li>Clones the fork, then <code>source ./activate</code> runs the repo's own setup: it stages a pinned uv, installs Python 3.14 and the locked dependencies (hash-checked against <code>uv.lock</code>), and downloads bundled tools.</li>
-        <li>Activates the environment in your current shell and makes <code>hermes</code> available while you are inside the checkout. Run <code>deactivate</code> to undo it.</li>
-      </ul>
-      <h3>Prerequisites</h3>
-      <ul class="plain">
-        <li><code>git</code> and <code>bash</code> or <code>zsh</code>. Fish and PowerShell use <code>activate.fish</code> and <code>activate.ps1</code>.</li>
-        <li>Disk space and time: first setup downloaded about 2&nbsp;GB and took around 20 minutes in our test.</li>
-      </ul>
-      <p class="note">The fork's README links the upstream installer at hermes-agent.nousresearch.com. That installs upstream Hermes Agent, not this fork. <code>uv tool install</code> from the git URL is also refused by the fork's build on purpose. Use the command above.</p>
-      <h3>Pin a version</h3>
-      <div class="cmd"><pre><code id="cmd-agent-pin">git clone https://github.com/talos-hq/hermes-slim &amp;&amp; cd hermes-slim &amp;&amp; git checkout d4f228ac265af37d1a52ff65b28d884fd4b1aa22 &amp;&amp; source ./activate</code></pre><button class="copy" type="button" data-copy="cmd-agent-pin">Copy</button></div>
-      <p>Pin by commit. Check it with <code>hermes --version</code>.</p>
+    <section class="install-block" id="clud" aria-labelledby="clud-title">
+      <aside class="reveal">
+        <svg aria-hidden="true"><use href="/assets/icons.svg#term"/></svg>
+        <h2 id="clud-title">CLUD</h2>
+        <p>Claude &amp; Codex CLI, with safety 3rd and God Mode always.</p>
+        <p style="font:.8rem var(--mono)"><a href="https://github.com/talos-hq/clud">talos-hq/clud</a></p>
+      </aside>
+      <div class="body reveal">
+        <div class="cmd"><pre data-prompt="$">curl -fsSL https://raw.githubusercontent.com/talos-hq/clud/main/install.sh | sh</pre><button type="button" data-copy>Copy</button></div>
+        <div>
+          <h3>What it does</h3>
+          <ul style="margin-top:1rem">
+            <li>Installs uv with Astral's installer if it is not already on your PATH.</li>
+            <li>Runs <code>uv tool install clud</code>, which puts one <code>clud</code> executable in uv's tool directory, then self-checks it.</li>
+            <li>Updates your shell PATH. Set <code>CLUD_NO_PATH=1</code> to leave your shell profile alone.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Prerequisites</h3>
+          <ul style="margin-top:1rem"><li>A POSIX shell and <code>curl</code>. uv is installed for you if it's missing.</li></ul>
+        </div>
+        <div>
+          <h3>Pin a version</h3>
+          <div class="cmd" style="margin-top:1rem"><pre data-prompt="$">curl -fsSL https://raw.githubusercontent.com/talos-hq/clud/main/install.sh | CLUD_VERSION=2.8.47 sh</pre><button type="button" data-copy>Copy</button></div>
+          <p style="margin-top:.8rem;color:var(--stone);font-size:1rem">Check it with <code>clud --version</code>. Releases: <a href="https://talos-hq.github.io/clud/install/manifest.json">manifest.json</a>.</p>
+        </div>
+      </div>
     </section>
   </div>
 </main>
-<footer class="site">
+
+<footer>
   <div class="wrap">
-    <p>© Talos HQ · <a href="https://github.com/talos-hq">github.com/talos-hq</a></p>
+    <a class="wordmark" href="/" style="font-size:1rem"><svg aria-hidden="true"><use href="/assets/icons.svg#emblem"/></svg>TALOS</a>
+    <span>Built on <a href="https://github.com/NousResearch/hermes-agent">Hermes Agent</a> · <a href="https://github.com/talos-hq">github.com/talos-hq</a></span>
   </div>
 </footer>
 <script>
-document.querySelectorAll('button[data-copy]').forEach(function (b) {
-  b.addEventListener('click', function () {
-    var t = document.getElementById(b.getAttribute('data-copy')).textContent;
-    navigator.clipboard.writeText(t).then(function () {
-      b.textContent = 'Copied';
-      setTimeout(function () { b.textContent = 'Copy'; }, 1500);
-    }, function () { b.textContent = 'Select it'; });
-  });
-});
+document.querySelectorAll("[data-copy]").forEach(btn => btn.addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText(btn.previousElementSibling.textContent.trim()); } catch { return; }
+  btn.textContent = "Copied"; btn.dataset.done = "";
+  setTimeout(() => { btn.textContent = "Copy"; delete btn.dataset.done; }, 1600);
+}));
 </script>
 </body>
 </html>
