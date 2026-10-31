@@ -2,75 +2,132 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TalosBot — Talos HQ</title>
-<meta name="description" content="TalosBot is the Talos HQ agent product line: clud, a Claude &amp; Codex CLI, and an agent that grows with you.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Talos</title>
+<meta name="description" content="Talos is the agent from Talos HQ: Hermes Agent with our fixes built in, still tracking upstream. Plan. Reason. Build.">
+<meta name="theme-color" content="#0b0d10">
 <link rel="canonical" href="https://talosbot.ai/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="/assets/styles.css">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="TalosBot">
-<meta property="og:title" content="TalosBot — Talos HQ">
-<meta property="og:description" content="clud, a Claude &amp; Codex CLI, and an agent that grows with you.">
+<meta property="og:site_name" content="Talos">
+<meta property="og:title" content="Talos · Plan. Reason. Build.">
+<meta property="og:description" content="Hermes Agent with our fixes built in, still tracking upstream.">
 <meta property="og:url" content="https://talosbot.ai/">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TalosBot — Talos HQ">
-<meta name="twitter:description" content="clud, a Claude &amp; Codex CLI, and an agent that grows with you.">
+<meta property="og:image" content="https://talosbot.ai/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://talosbot.ai/assets/og.jpg">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site">
+<header class="nav">
   <div class="wrap">
-    <a class="brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">TalosBot</a>
+    <a class="wordmark" href="/" aria-label="Talos home"><svg aria-hidden="true"><use href="/assets/icons.svg#emblem"/></svg>TALOS</a>
     <nav aria-label="Primary">
-      <ul>
-        <li><a href="/" aria-current="page">Home</a></li>
-        <li><a href="/install/">Install</a></li>
-        <li><a href="https://github.com/talos-hq">GitHub</a></li>
-      </ul>
+      <a href="/" aria-current="page">Home</a>
+      <a href="/install/">Install</a>
+      <a href="https://github.com/talos-hq">GitHub</a>
     </nav>
   </div>
 </header>
+
 <main id="main">
-  <div class="wrap">
-    <section class="hero" aria-labelledby="hero-title">
-      <p class="eyebrow">Talos HQ</p>
-      <h1 id="hero-title">TalosBot</h1>
-      <p class="lede">TalosBot is the Talos HQ agent product line. Today it ships as two open-source projects: <strong>clud</strong>, a command-line wrapper for Claude Code and Codex, and <strong>the agent</strong>, our fork of Hermes Agent.</p>
-      <div class="actions">
-        <a class="btn primary" href="/install/">Install</a>
-        <a class="btn" href="https://github.com/talos-hq">View on GitHub</a>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="label">Talos HQ</p>
+        <h1 style="margin-top:1.2rem">TALOS</h1>
+        <p class="tag">Plan. Reason. Build.</p>
+        <p class="lede">A personal agent that runs in your terminal and on your messaging apps. It is built on Hermes Agent, ships with our fixes, and keeps pulling in every fix from upstream.</p>
+        <div class="ctas">
+          <a class="btn solid" href="/install/">Install Talos</a>
+          <a class="btn" href="https://github.com/talos-hq/hermes-slim">Source</a>
+        </div>
       </div>
-    </section>
-    <section aria-labelledby="products-title">
-      <h2 id="products-title">Projects</h2>
-      <div class="grid">
-        <article class="card">
-          <span class="tag">talos-hq/clud</span>
-          <h3>clud</h3>
-          <p>Claude &amp; Codex CLI but with safety 3rd and God Mode always.</p>
-          <div class="actions">
-            <a class="btn primary" href="/install/#clud">Install clud</a>
-            <a class="btn" href="https://github.com/talos-hq/clud">Source</a>
-          </div>
+      <figure class="emblem">
+        <img src="/assets/talos.jpg" alt="The bronze Talos figure inside a turning bronze ring" width="900" height="900" fetchpriority="high">
+        <span class="core" aria-hidden="true"></span>
+      </figure>
+    </div>
+  </section>
+
+  <section class="lineage" aria-label="Where Talos comes from">
+    <div class="wrap">
+      <ol>
+        <li class="reveal"><h3>Hermes at the core</h3><p>Talos runs Hermes Agent from Nous Research: the same CLI, messaging gateway, memory and skills.</p></li>
+        <li class="reveal"><h3>Fixes built in</h3><p>We fix what breaks for us in the installer, the state store and the gateway, and ship those fixes now.</p></li>
+        <li class="reveal"><h3>Upstream, always</h3><p>Upstream main is merged into Talos continually, so nothing the Hermes project fixes is left behind.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="what">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="label">What it does</p>
+        <h2 id="what">An agent that does the work</h2>
+        <p>Talos keeps the parts of Hermes that make it useful day to day, and we work on making it install and run reliably.</p>
+      </div>
+      <div class="pillars">
+        <article class="pillar reveal"><span class="ico"><svg aria-hidden="true"><use href="/assets/icons.svg#graph"/></svg></span><h3>Plans and delegates</h3><p>It breaks work into steps and hands pieces to subagents.</p></article>
+        <article class="pillar reveal"><span class="ico"><svg aria-hidden="true"><use href="/assets/icons.svg#term"/></svg></span><h3>Real tools</h3><p>It runs a real terminal and browser, not a simulation of one.</p></article>
+        <article class="pillar reveal"><span class="ico"><svg aria-hidden="true"><use href="/assets/icons.svg#layers"/></svg></span><h3>Memory and skills</h3><p>It remembers across sessions and learns skills, so it grows with you.</p></article>
+        <article class="pillar reveal"><span class="ico"><svg aria-hidden="true"><use href="/assets/icons.svg#bolt"/></svg></span><h3>Wherever you are</h3><p>Use it from the CLI or TUI, or message it on Telegram and other platforms through the gateway.</p></article>
+        <article class="pillar reveal"><span class="ico"><svg aria-hidden="true"><use href="/assets/icons.svg#gear"/></svg></span><h3>Scheduled jobs</h3><p>It runs recurring work on a schedule without you starting it.</p></article>
+        <article class="pillar reveal"><span class="ico"><svg aria-hidden="true"><use href="/assets/icons.svg#sync"/></svg></span><h3>Tracks upstream</h3><p>Fixes from Nous Research flow in through regular upstream syncs.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="banner" aria-labelledby="endure">
+    <img src="/assets/og.jpg" alt="" loading="lazy" width="1200" height="630">
+    <div class="wrap">
+      <h2 id="endure">BUILT TO<br>ENDURE</h2>
+      <p>In the myth, Talos was the bronze guardian of Crete, a machine that never tired. We picked the name for an agent you can leave running.</p>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="projects">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="label">Projects</p>
+        <h2 id="projects">From the forge</h2>
+      </div>
+      <div class="products">
+        <article class="product lead reveal">
+          <svg class="ico" aria-hidden="true"><use href="/assets/icons.svg#t"/></svg>
+          <h3>TALOS</h3>
+          <span class="repo">talos-hq/hermes-slim</span>
+          <p>The agent that grows with you. Our fork of Hermes Agent, with our fixes on top.</p>
+          <div class="ctas"><a class="btn solid" href="/install/#agent">Install</a><a class="btn" href="https://github.com/talos-hq/hermes-slim">Source</a></div>
         </article>
-        <article class="card">
-          <span class="tag">talos-hq/hermes-slim</span>
-          <h3>The agent</h3>
-          <p>The agent that grows with you. A fork of Hermes Agent by Nous Research.</p>
-          <div class="actions">
-            <a class="btn primary" href="/install/#agent">Install the agent</a>
-            <a class="btn" href="https://github.com/talos-hq/hermes-slim">Source</a>
-          </div>
+        <article class="product reveal">
+          <svg class="ico" aria-hidden="true"><use href="/assets/icons.svg#term"/></svg>
+          <h3>CLUD</h3>
+          <span class="repo">talos-hq/clud</span>
+          <p>Claude &amp; Codex CLI, with safety 3rd and God Mode always.</p>
+          <div class="ctas"><a class="btn solid" href="/install/#clud">Install</a><a class="btn" href="https://github.com/talos-hq/clud">Source</a></div>
         </article>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </main>
-<footer class="site">
+
+<footer>
   <div class="wrap">
-    <p>© Talos HQ · <a href="https://github.com/talos-hq">github.com/talos-hq</a></p>
+    <a class="wordmark" href="/" style="font-size:1rem"><svg aria-hidden="true"><use href="/assets/icons.svg#emblem"/></svg>TALOS</a>
+    <span>Built on <a href="https://github.com/NousResearch/hermes-agent">Hermes Agent</a> · <a href="https://github.com/talos-hq">github.com/talos-hq</a></span>
   </div>
 </footer>
+<script>
+document.querySelectorAll(".pillar").forEach(el => el.addEventListener("pointermove", e => {
+  const r = el.getBoundingClientRect();
+  el.style.setProperty("--mx", e.clientX - r.left + "px");
+  el.style.setProperty("--my", e.clientY - r.top + "px");
+}));
+</script>
 </body>
 </html>

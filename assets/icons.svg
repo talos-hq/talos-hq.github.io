@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="emblem" viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="#c89b63" stroke-width="3" stroke-dasharray="130 21" transform="rotate(-64 32 32)"/><circle cx="32" cy="32" r="7.5" fill="#f0b25a"/></symbol>
+  <symbol id="t" viewBox="0 0 64 64"><path fill="currentColor" d="M8 12h48l-6 9H38v31l-6 6-6-6V21H14z"/><circle cx="32" cy="8" r="3" fill="currentColor"/></symbol>
+  <symbol id="term" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M5 7l5 5-5 5M12 17h7"/></symbol>
+  <symbol id="bolt" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M13 2L5 14h6l-1 8 8-12h-6z"/></symbol>
+  <symbol id="graph" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5L5 18h14z"/><circle cx="12" cy="5" r="2" fill="currentColor"/><circle cx="5" cy="18" r="2" fill="currentColor"/><circle cx="19" cy="18" r="2" fill="currentColor"/><circle cx="12" cy="13" r="1.5" fill="currentColor"/></g></symbol>
+  <symbol id="layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 12l9 5 9-5M3 16l9 5 9-5"/></g></symbol>
+  <symbol id="shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></g></symbol>
+  <symbol id="sync" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M20 11a8 8 0 0 0-14.5-4.5M4 13a8 8 0 0 0 14.5 4.5"/><path d="M5 3v4h4M19 21v-4h-4"/></g></symbol>
+  <symbol id="gear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></g></symbol>
+</svg>
