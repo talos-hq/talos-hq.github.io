@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install — TalosBot</title>
+<meta name="description" content="Install clud and the TalosBot agent with verified one-line commands.">
+<link rel="canonical" href="https://talosbot.ai/install/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/styles.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TalosBot">
+<meta property="og:title" content="Install — TalosBot">
+<meta property="og:description" content="Install clud and the TalosBot agent with verified one-line commands.">
+<meta property="og:url" content="https://talosbot.ai/install/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Install — TalosBot">
+<meta name="twitter:description" content="Install clud and the TalosBot agent with verified one-line commands.">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28">TalosBot</a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/install/" aria-current="page">Install</a></li>
+        <li><a href="https://github.com/talos-hq">GitHub</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <div class="wrap">
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">Install</p>
+      <h1 id="page-title">Install TalosBot</h1>
+      <p class="lede">Two projects, one command each. Both commands below were run end to end in a clean, isolated environment on Linux before this page was published.</p>
+    </section>
+
+    <section class="product" id="clud" aria-labelledby="clud-title">
+      <h2 id="clud-title">clud</h2>
+      <p>Claude &amp; Codex CLI but with safety 3rd and God Mode always.</p>
+      <div class="cmd"><pre><code id="cmd-clud">curl -fsSL https://raw.githubusercontent.com/talos-hq/clud/main/install.sh | sh</code></pre><button class="copy" type="button" data-copy="cmd-clud">Copy</button></div>
+      <h3>What it does</h3>
+      <ul class="plain">
+        <li>Installs <a href="https://docs.astral.sh/uv/">uv</a> with Astral's official installer if it is not already on your PATH.</li>
+        <li>Runs <code>uv tool install --force clud</code>, which puts a single <code>clud</code> executable in uv's tool bin directory.</li>
+        <li>Runs a quick self-check on the installed binary, then runs <code>uv tool update-shell</code> so future shells find it. Set <code>CLUD_NO_PATH=1</code> to skip editing your shell profile.</li>
+      </ul>
+      <h3>Prerequisites</h3>
+      <ul class="plain"><li>A POSIX shell and <code>curl</code>. uv is installed for you if missing.</li></ul>
+      <h3>Pin a version</h3>
+      <div class="cmd"><pre><code id="cmd-clud-pin">curl -fsSL https://raw.githubusercontent.com/talos-hq/clud/main/install.sh | CLUD_VERSION=2.8.47 sh</code></pre><button class="copy" type="button" data-copy="cmd-clud-pin">Copy</button></div>
+      <p>Check it with <code>clud --version</code>. Release catalog: <a href="https://talos-hq.github.io/clud/install/manifest.json">manifest.json</a> · <a href="https://github.com/talos-hq/clud">source</a>.</p>
+    </section>
+
+    <section class="product" id="agent" aria-labelledby="agent-title">
+      <h2 id="agent-title">The agent</h2>
+      <p>The agent that grows with you. <a href="https://github.com/talos-hq/hermes-slim">talos-hq/hermes-slim</a> is our fork of Hermes Agent by Nous Research. It runs from a git checkout.</p>
+      <div class="cmd"><pre><code id="cmd-agent">git clone https://github.com/talos-hq/hermes-slim &amp;&amp; cd hermes-slim &amp;&amp; source ./activate</code></pre><button class="copy" type="button" data-copy="cmd-agent">Copy</button></div>
+      <h3>What it does</h3>
+      <ul class="plain">
+        <li>Clones the fork, then <code>source ./activate</code> runs the repo's own setup: it stages a pinned uv, installs Python 3.14 and the locked dependencies (hash-checked against <code>uv.lock</code>), and downloads bundled tools.</li>
+        <li>Activates the environment in your current shell and makes <code>hermes</code> available while you are inside the checkout. Run <code>deactivate</code> to undo it.</li>
+      </ul>
+      <h3>Prerequisites</h3>
+      <ul class="plain">
+        <li><code>git</code> and <code>bash</code> or <code>zsh</code>. Fish and PowerShell use <code>activate.fish</code> and <code>activate.ps1</code>.</li>
+        <li>Disk space and time: first setup downloaded about 2&nbsp;GB and took around 20 minutes in our test.</li>
+      </ul>
+      <p class="note">The fork's README links the upstream installer at hermes-agent.nousresearch.com. That installs upstream Hermes Agent, not this fork. <code>uv tool install</code> from the git URL is also refused by the fork's build on purpose. Use the command above.</p>
+      <h3>Pin a version</h3>
+      <div class="cmd"><pre><code id="cmd-agent-pin">git clone https://github.com/talos-hq/hermes-slim &amp;&amp; cd hermes-slim &amp;&amp; git checkout d4f228ac265af37d1a52ff65b28d884fd4b1aa22 &amp;&amp; source ./activate</code></pre><button class="copy" type="button" data-copy="cmd-agent-pin">Copy</button></div>
+      <p>Pin by commit. Check it with <code>hermes --version</code>.</p>
+    </section>
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>© Talos HQ · <a href="https://github.com/talos-hq">github.com/talos-hq</a></p>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('button[data-copy]').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var t = document.getElementById(b.getAttribute('data-copy')).textContent;
+    navigator.clipboard.writeText(t).then(function () {
+      b.textContent = 'Copied';
+      setTimeout(function () { b.textContent = 'Copy'; }, 1500);
+    }, function () { b.textContent = 'Select it'; });
+  });
+});
+</script>
+</body>
+</html>
