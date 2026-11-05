@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Talos</title>
-<meta name="description" content="Talos is the agent from Talos HQ: Hermes Agent with our fixes built in, still tracking upstream. Plan. Reason. Build.">
+<title>Install Talos</title>
+<meta name="description" content="Install Talos with one command on macOS, Linux or Windows. Signed, sha256-verified bundles, nothing to compile.">
 <meta name="theme-color" content="#0b0d10">
 <link rel="canonical" href="https://talosbot.ai/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="/assets/styles.css">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Talos">
-<meta property="og:title" content="Talos · Plan. Reason. Build.">
-<meta property="og:description" content="Hermes Agent with our fixes built in, still tracking upstream.">
+<meta property="og:title" content="Install Talos in one command">
+<meta property="og:description" content="curl -fsSL https://talosbot.ai/install.sh | sh">
 <meta property="og:url" content="https://talosbot.ai/">
 <meta property="og:image" content="https://talosbot.ai/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -27,82 +27,86 @@
   <div class="wrap">
     <a class="wordmark" href="/" aria-label="Talos home"><svg aria-hidden="true"><use href="/assets/icons.svg#emblem"/></svg>TALOS</a>
     <nav aria-label="Primary">
-      <a href="/" aria-current="page">Home</a>
-      <a href="/install/">Install</a>
-      <a href="https://github.com/talos-hq">GitHub</a>
+      <a href="#install" aria-current="page">Install</a>
+      <a href="#deploy">Deploy</a>
+      <a href="#products">Products</a>
+      <a href="https://github.com/talos-hq/talos">GitHub</a>
     </nav>
   </div>
 </header>
 
 <main id="main">
-  <section class="hero">
+  <section class="mega" id="install" aria-labelledby="install-title">
+    <img class="mega-art" src="/assets/talos.jpg" alt="" width="900" height="900" fetchpriority="high">
     <div class="wrap">
-      <div>
-        <p class="label">Talos HQ</p>
-        <h1 style="margin-top:1.2rem">TALOS</h1>
-        <p class="tag">Plan. Reason. Build.</p>
-        <p class="lede">A personal agent that runs in your terminal and on your messaging apps. It is built on Hermes Agent, ships with our fixes, and keeps pulling in every fix from upstream.</p>
-        <div class="ctas">
-          <a class="btn solid" href="/install/">Install Talos</a>
-          <a class="btn" href="https://github.com/talos-hq/hermes-slim">Source</a>
+      <p class="label">Talos · Plan. Reason. Build.</p>
+      <h1 id="install-title">Install Talos.<br><span>One command.</span></h1>
+
+      <div class="installer mega-installer" role="group" aria-label="Choose your platform">
+        <div class="tabs">
+          <label><input type="radio" name="os" id="os-unix" checked><svg aria-hidden="true"><use href="/assets/os.svg#apple"/></svg><span>macOS &amp; Linux</span></label>
+          <label><input type="radio" name="os" id="os-win"><svg aria-hidden="true"><use href="/assets/os.svg#win"/></svg><span>Windows</span></label>
+        </div>
+        <div class="panel unix">
+          <div class="cmd mega-cmd"><pre data-prompt="$">curl -fsSL https://talosbot.ai/install.sh | sh</pre><button type="button" data-copy>Copy</button></div>
+        </div>
+        <div class="panel win">
+          <div class="cmd mega-cmd"><pre data-prompt="PS&gt;">irm https://talosbot.ai/install.ps1 | iex</pre><button type="button" data-copy>Copy</button></div>
         </div>
       </div>
-      <figure class="emblem">
-        <img src="/assets/talos.jpg" alt="The bronze Talos figure inside a turning bronze ring" width="900" height="900" fetchpriority="high">
-        <span class="core" aria-hidden="true"></span>
-      </figure>
+
+      <p class="mega-note">Paste it into a terminal. You get a signed, sha256-verified bundle with Python included, and nothing to compile. Then <a href="#deploy">add one key</a> and Talos is running.</p>
     </div>
   </section>
 
-  <section class="lineage" aria-label="Where Talos comes from">
+  <section class="block" id="deploy" aria-labelledby="deploy-title">
     <div class="wrap">
-      <ol>
-        <li class="reveal"><h3>Hermes at the core</h3><p>Talos runs Hermes Agent from Nous Research: the same CLI, messaging gateway, memory and skills.</p></li>
-        <li class="reveal"><h3>Fixes built in</h3><p>We fix what breaks for us in the installer, the state store and the gateway, and ship those fixes now.</p></li>
-        <li class="reveal"><h3>Upstream, always</h3><p>Upstream main is merged into Talos continually, so nothing the Hermes project fixes is left behind.</p></li>
+      <div class="head reveal">
+        <p class="label">From zero to running</p>
+        <h2 id="deploy-title">Installed and deployed in three steps</h2>
+      </div>
+      <ol class="deploy">
+        <li class="reveal">
+          <h3>Run the command</h3>
+          <p>The installer detects your OS and CPU, downloads the matching bundle, checks its sha256, and puts <code>hermes</code> on your PATH.</p>
+        </li>
+        <li class="reveal">
+          <h3>Add your key</h3>
+          <p>Setup starts by itself and asks for an OpenRouter key in a masked prompt. The key is stored in your profile and never shown to the model.</p>
+        </li>
+        <li class="reveal">
+          <h3>It's live</h3>
+          <p>Setup starts the gateway as a background service. Run <code>hermes</code> to chat in the terminal, or message your bot.</p>
+        </li>
       </ol>
+      <div class="platforms reveal">
+        <span><svg aria-hidden="true"><use href="/assets/os.svg#apple"/></svg>macOS · Apple Silicon &amp; Intel</span>
+        <span><svg aria-hidden="true"><use href="/assets/os.svg#linux"/></svg>Linux · x64 &amp; arm64, glibc or musl</span>
+        <span><svg aria-hidden="true"><use href="/assets/os.svg#win"/></svg>Windows 10 &amp; 11 · x64</span>
+      </div>
     </div>
   </section>
 
-  <section class="block" aria-labelledby="what">
+  <section class="block" id="products" aria-labelledby="products-title" style="padding-top:0">
     <div class="wrap">
       <div class="head reveal">
-        <p class="label">What it does</p>
-        <h2 id="what">An agent that does the work</h2>
-        <p>Talos keeps the parts of Hermes that make it useful day to day, and we work on making it install and run reliably.</p>
+        <p class="label">Pick your build</p>
+        <h2 id="products-title">Talos, or plain Hermes with fixes</h2>
       </div>
-      <div class="pillars">
-        <article class="pillar reveal"><span class="ico"><svg aria-hidden="true"><use href="/assets/icons.svg#graph"/></svg></span><h3>Plans and delegates</h3><p>It breaks work into steps and hands pieces to subagents.</p></article>
-        <article class="pillar reveal"><span class="ico"><svg aria-hidden="true"><use href="/assets/icons.svg#term"/></svg></span><h3>Real tools</h3><p>It runs a real terminal and browser, not a simulation of one.</p></article>
-        <article class="pillar reveal"><span class="ico"><svg aria-hidden="true"><use href="/assets/icons.svg#layers"/></svg></span><h3>Memory and skills</h3><p>It remembers across sessions and learns skills, so it grows with you.</p></article>
-        <article class="pillar reveal"><span class="ico"><svg aria-hidden="true"><use href="/assets/icons.svg#bolt"/></svg></span><h3>Wherever you are</h3><p>Use it from the CLI or TUI, or message it on Telegram and other platforms through the gateway.</p></article>
-        <article class="pillar reveal"><span class="ico"><svg aria-hidden="true"><use href="/assets/icons.svg#gear"/></svg></span><h3>Scheduled jobs</h3><p>It runs recurring work on a schedule without you starting it.</p></article>
-        <article class="pillar reveal"><span class="ico"><svg aria-hidden="true"><use href="/assets/icons.svg#sync"/></svg></span><h3>Tracks upstream</h3><p>Fixes from Nous Research flow in through regular upstream syncs.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="banner" aria-labelledby="endure">
-    <img src="/assets/og.jpg" alt="" loading="lazy" width="1200" height="630">
-    <div class="wrap">
-      <h2 id="endure">BUILT TO<br>ENDURE</h2>
-      <p>In the myth, Talos was the bronze guardian of Crete, a machine that never tired. We picked the name for an agent you can leave running.</p>
-    </div>
-  </section>
-
-  <section class="block" aria-labelledby="projects">
-    <div class="wrap">
-      <div class="head reveal">
-        <p class="label">Projects</p>
-        <h2 id="projects">From the forge</h2>
-      </div>
-      <div class="products">
+      <div class="products three">
         <article class="product lead reveal">
           <svg class="ico" aria-hidden="true"><use href="/assets/icons.svg#t"/></svg>
           <h3>TALOS</h3>
+          <span class="repo">talos-hq/talos</span>
+          <p>Our agent. Hermes with our fixes built in, a one-command installer, signed bundles for every platform, and setup that starts the gateway for you.</p>
+          <div class="ctas"><a class="btn solid" href="#install">Install</a><a class="btn" href="https://github.com/talos-hq/talos">Source</a></div>
+        </article>
+        <article class="product reveal">
+          <svg class="ico" aria-hidden="true"><use href="/assets/icons.svg#sync"/></svg>
+          <h3>HERMES-SLIM</h3>
           <span class="repo">talos-hq/hermes-slim</span>
-          <p>The agent that grows with you. Our fork of Hermes Agent, with our fixes on top.</p>
-          <div class="ctas"><a class="btn solid" href="/install/#agent">Install</a><a class="btn" href="https://github.com/talos-hq/hermes-slim">Source</a></div>
+          <p>Hermes Agent as upstream ships it, plus our fixes, and nothing else. Same name, same layout. Pick this if you want Hermes rather than Talos.</p>
+          <div class="ctas"><a class="btn solid" href="/install/#hermes-slim">Install</a><a class="btn" href="https://github.com/talos-hq/hermes-slim">Source</a></div>
         </article>
         <article class="product reveal">
           <svg class="ico" aria-hidden="true"><use href="/assets/icons.svg#term"/></svg>
@@ -119,15 +123,19 @@
 <footer>
   <div class="wrap">
     <a class="wordmark" href="/" style="font-size:1rem"><svg aria-hidden="true"><use href="/assets/icons.svg#emblem"/></svg>TALOS</a>
-    <span>Built on <a href="https://github.com/NousResearch/hermes-agent">Hermes Agent</a> · <a href="https://github.com/talos-hq">github.com/talos-hq</a></span>
+    <span>Built on <a href="https://github.com/NousResearch/hermes-agent">Hermes Agent</a> · <a href="/install/">All install options</a> · <a href="https://github.com/talos-hq">github.com/talos-hq</a></span>
   </div>
 </footer>
 <script>
-document.querySelectorAll(".pillar").forEach(el => el.addEventListener("pointermove", e => {
-  const r = el.getBoundingClientRect();
-  el.style.setProperty("--mx", e.clientX - r.left + "px");
-  el.style.setProperty("--my", e.clientY - r.top + "px");
-}));
+(() => {
+  const ua = navigator.userAgentData?.platform || navigator.platform || navigator.userAgent;
+  if (/win/i.test(ua)) document.getElementById("os-win").checked = true;
+  document.querySelectorAll("[data-copy]").forEach(btn => btn.addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(btn.previousElementSibling.textContent.trim()); } catch { return; }
+    btn.textContent = "Copied"; btn.dataset.done = "";
+    setTimeout(() => { btn.textContent = "Copy"; delete btn.dataset.done; }, 1600);
+  }));
+})();
 </script>
 </body>
 </html>
