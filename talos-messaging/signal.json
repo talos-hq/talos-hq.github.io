@@ -1,0 +1,16 @@
+{
+  "protocol": "talos-messaging-signal/1",
+  "service": "Talos Messaging",
+  "note": "talosbot.ai is a static site (GitHub Pages): this document publishes the relay's address; the WebSocket terminates on the host below.",
+  "websocket": "wss://clud.bot/talos-messaging/signal/{room}?role=agent|phone",
+  "info": "https://clud.bot/talos-messaging/signal",
+  "room": "sha256(install_key) first 32 hex characters",
+  "roles": [
+    "agent",
+    "phone"
+  ],
+  "max_frame_bytes": 32768,
+  "relays": "opaque SDP/ICE frames between one agent and one phone; nothing is stored",
+  "agent_command": "hermes talos-messaging serve",
+  "app": "https://github.com/talos-hq/hermes-slim/tree/main/apps/talos-messaging"
+}
