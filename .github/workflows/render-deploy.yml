@@ -1,0 +1,41 @@
+name: Deploy to Render
+# talosbot.ai is served by the Render static site `talosbot`
+# (srv-dbmj5gjbc2fs73a3vnpg). The service is configured with autoDeploy=yes, but
+# this repo has no Render GitHub App installation, so a push never reaches
+# Render on its own. This job closes that gap: on every push to main it asks the
+# Render API for a deploy of the current commit. Swap it for the GitHub App (or a
+# Render deploy hook) and this file can go.
+#
+# The key lives in the repo secret RENDER_API_KEY (a Render API key, not a
+# deploy hook — Render's hooks are dashboard-only and not exposed by the API).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: render-deploy
+  cancel-in-progress: false
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Ask Render to deploy this commit
+        env:
+          KEY: ${{ secrets.RENDER_API_KEY }}
+          SERVICE: srv-dbmj5gjbc2fs73a3vnpg
+        run: |
+          set -euo pipefail
+          if [ -z "${KEY:-}" ]; then
+            echo "::error::RENDER_API_KEY is not set on this repository"
+            exit 1
+          fi
+          code=$(curl -sS -o /tmp/deploy.json -w '%{http_code}' --max-time 40 \
+            -X POST "https://api.render.com/v1/services/$SERVICE/deploys" \
+            -H "Authorization: Bearer $KEY" -H 'Content-Type: application/json' -d '{}')
+          cat /tmp/deploy.json || true
+          echo
+          echo "render deploy request -> HTTP $code"
+          [ "$code" = "201" ] || [ "$code" = "202" ]
